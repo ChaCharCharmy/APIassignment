@@ -4,7 +4,6 @@
 header('Access-Control_Allow-Origin: *');
 header('Content-Type: application/json');
 
-// multiple access methods (i.e. PUT and PATCH )can be done but need to be connected to seperate functions
 header('Access-Control-Allow-Methodss: PUT');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 

@@ -10,17 +10,17 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 // initialize API
 include_once('../core/initialize.php');
 
-// Create instance of User
-$user = new User($db);
+// Create instance of Table
+$table = new Table($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$user->id = $data->id;
-$user->password = $data->password;
+$table->tableId = $data->tableId;
+$table->isOccupied = $data->isOccupied;
 
-if($user->updatePassword()){
-    echo json_encode(array('message'=>'Password updated.'));
+if($table->updateIsOccupied()){
+    echo json_encode(array('message'=>'Table availability updated.'));
 }
 else{
-    echo json_encode(array('message'=>'Password NOT updated.'));
+    echo json_encode(array('message'=>'Table availability NOT updated.'));
 }
