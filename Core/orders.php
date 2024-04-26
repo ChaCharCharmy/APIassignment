@@ -122,9 +122,30 @@ class Orders{
         return false;
     }
 
+    public function updateStatus(){
+        $query = 'UPDATE ' .$this->table.'
+                    SET status = :status
+                    WHERE id = :id;';
+
+        $stmt = $this->conn->prepare($query);
+
+        $this->id = htmlspecialchars(strip_tags($this->id));
+        $this->status = htmlspecialchars(strip_tags($this->status));
+
+        $stmt->bindParam(':id', $this->id);
+        $stmt->bindParam(':status', $this->status);
+
+        if($stmt->execute()){
+            return true;
+        }
+
+        printf('Error: %s. \n',$stmt->error);
+        return false;
+    }
+
     public function updatePrice(){
         $query = 'UPDATE ' .$this->table.'
-                    SET ingredients = :ingredients
+                    SET price = :price
                     WHERE id = :id;';
 
         $stmt = $this->conn->prepare($query);
