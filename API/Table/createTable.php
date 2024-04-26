@@ -8,7 +8,7 @@ header('Access-Control-Allow-Methodss: POST');
 header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type, Access-Control-Allow-Methods, Authorization, X-Requested-With');
 
 // initialize API
-include_once('../core/initialize.php');
+include_once('../../Core/initialize.php');
 
 // Create instance of table
 $table = new Table($db);

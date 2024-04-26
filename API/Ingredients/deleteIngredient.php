@@ -10,13 +10,12 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 // initialize API
 include_once('../../core/initialize.php');
 
-// Create instance of Table
-$table = new Table($db);
-$table->tableId = isset($_GET['id'])? $_GET['id'] : die();
+$ingredients = new Ingredients($db);
+$ingredients->id = isset($_GET['id'])? $_GET['id'] : die();
 
-if($table->delete()){
-    echo json_encode(array('message'=>'Table deleted.'));
+if($ingredients->delete()){
+    echo json_encode(array('message'=>'ingredient deleted.'));
 }
 else{
-    echo json_encode(array('message'=>'Table NOT deleted.'));
+    echo json_encode(array('message'=>'ingredient NOT deleted.'));
 }

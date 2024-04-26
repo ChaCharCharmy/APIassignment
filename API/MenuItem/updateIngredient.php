@@ -10,17 +10,16 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 // initialize API
 include_once('../../core/initialize.php');
 
-// Create instance of Table
-$table = new Table($db);
+$item = new MenuItems($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$table->tableId = $data->tableId;
-$table->isOccupied = $data->isOccupied;
+$item->id = $data->id;
+$item->ingredient = $data->ingredient;
 
-if($table->updateIsOccupied()){
-    echo json_encode(array('message'=>'Table availability updated.'));
+if($item->update()){
+    echo json_encode(array('message'=>'item updated.'));
 }
 else{
-    echo json_encode(array('message'=>'Table availability NOT updated.'));
+    echo json_encode(array('message'=>'item NOT updated.'));
 }

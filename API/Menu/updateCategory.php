@@ -10,17 +10,16 @@ header('Access-Control-Allow-Headers: Access-Control-Allow-Headers, Content-Type
 // initialize API
 include_once('../../core/initialize.php');
 
-// Create instance of Table
-$table = new Table($db);
+$category = new Menu($db);
 
 $data = json_decode(file_get_contents('php://input'));
 
-$table->tableId = $data->tableId;
-$table->isOccupied = $data->isOccupied;
+$category->id = $data->id;
+$category->category = $data->category;
 
-if($table->updateIsOccupied()){
-    echo json_encode(array('message'=>'Table availability updated.'));
+if($category->updateCategory()){
+    echo json_encode(array('message'=>'category updated.'));
 }
 else{
-    echo json_encode(array('message'=>'Table availability NOT updated.'));
+    echo json_encode(array('message'=>'category NOT updated.'));
 }
