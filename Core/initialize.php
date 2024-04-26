@@ -14,3 +14,4 @@ require_once(CORE_PATH.DS.'menu.php');
 require_once(CORE_PATH.DS.'menuItem.php');
 require_once(CORE_PATH.DS.'ingredients.php');
 require_once(CORE_PATH.DS.'orders.php');
+require_once(CORE_PATH.DS.'status.php');
